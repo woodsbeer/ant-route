@@ -1,0 +1,60 @@
+.index {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  .google {
+    position: absolute;
+    top: 25px;
+    left: 16px;
+    font-size: 30px;
+    animation: App-logo-spin infinite 10s ease-in-out;
+    //color: black;
+  }
+  .span {
+    position: absolute;
+    top: 25px;
+    left: 80px;
+    font-size: 20px;
+    //color: #000;
+  }
+  .light {
+    //color:white;
+    //background: dark;
+  }
+  .dark {
+    color: lavender;
+    //color:black;
+    //background: light;
+  }
+  .menu {
+    height: 100%;
+    padding-top: 90px;
+
+  }
+  .switch {
+    position: absolute;
+    bottom: 50px;
+    right: 20px;
+  }
+  .ant-layout-sider-has-trigger{
+    padding-bottom:0;
+  }
+  .ant-layout-sider-trigger{
+    display: none;
+  }
+  .ant-layout-sider-collapsed{
+    .span{
+      display: none;
+    }
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
