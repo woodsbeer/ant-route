@@ -21,12 +21,22 @@ const Music = Loadable({
   loader:()=>import('../../pages/music/index'),
   loading:Loading
 });
+const Search = Loadable({
+  loader:()=>import('../../pages/search'),
+  loading:Loading
+});
+const animation = Loadable({
+    loader:()=>import('../../pages/search'),
+    loading:Loading
+});
 
 export default MyContent => (<Content className={'content'} id='ccontent'>
   <Switch>
+    {/*//虽然已经在/index中显示的页面了，但是子路由还是要是完整的，前面加上index*/}
     <Route exact path={'/index'} component={Index}/>
     <Route path={'/index/waterfall'} component={Fall}/>
     <Route path={'/index/music'} component={Music}/>
+    <Route path={'/index/searchEngine'} component={Search}/>
   </Switch>
 </Content>)
 

@@ -14,7 +14,10 @@ export default class MyHome extends React.Component {
   }
 
   componentWillUnmount() {
+    // fall.unbind()
     waterFall = null;
+    console.log('unmount');
+
   }
 
   initFall() {

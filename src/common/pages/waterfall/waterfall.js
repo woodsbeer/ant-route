@@ -18,7 +18,7 @@ const tool = {
   addEventListener:function (event,element,fun) {
     element.addEventListener(event,fun,false)
   }
-}
+};
 
 function Event() {
   this.cabel = []
@@ -102,7 +102,6 @@ proto.append = function () {
         break;
     }
     count++;
-
   }
   console.log(prelist);
   console.log(currentPosition,'currentpoint');
@@ -128,15 +127,21 @@ proto.bind = function () {
   const scrollEvent =document.getElementById(this.option.scrollElement);
   const contain =document.getElementById(this.option.contain);
   tool.addEventListener('scroll',scrollEvent||window,scroll.bind(this))
-
 };
-
+const unbind = ()=>{
+  console.log(document.getElementById('ccontent'));
+  document.getElementById('ccontent').removeEventListener('scroll',scroll.bind(this));
+  console.log('unbinding');
+  console.log(document.getElementById('ccontent'));
+}
 const scroll =function() {
   // console.log('scroll');
   if (tool.loading)
     return
   // console.log('scrollCal');
   let contain = document.getElementById(this.option.contain);
+  if (!contain)
+    return  //就是如果切换了route，这个waterfall就被清空了我们在太用它传过来的东西会报空指针，需要手动退出
   let scrollElement = document.getElementById(this.option.scrollElement);
   let imgs = contain.getElementsByTagName('img');
   const scrollY = scrollElement.scrollTop;
@@ -148,5 +153,5 @@ const scroll =function() {
     this.emit('load')
   }
 }
-export default {WaterFall,tool}
+export default {WaterFall,tool,unbind}
 

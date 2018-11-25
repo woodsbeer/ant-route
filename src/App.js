@@ -1,20 +1,35 @@
 import React, {Component} from 'react';
 import './App.less';
+import './iconfont'
 import createBrowserHistory from 'history/createBrowserHistory'
 import {BrowserRouter, Route, Switch,Redirect} from 'react-router-dom/es'
-import MtHome from './common/component/Home/TestHome'
-import AntOne from './common/component/AntOne'
-import Login from './common/component/login/login'
-import Number from './common/component/antNumber/AntNumber'
 // import MyIndex from './container/index'
-import MyIndex from './common/container/index'
+import Loadable from "react-loadable";
 // import MyIndex from 'container/index/index'
 // import MyIndex from '@/container/index'
 const history = createBrowserHistory();
-const location = history.location;
-
-console.log('container');
-
+// const location = history.location;
+const Loading = () => (<div>loading~~</div>);
+const Home = Loadable({
+    loader: () => import('./common/component/Home/TestHome'),
+    loading: Loading,
+});
+const AntOne = Loadable({
+    loader: () => import('./common/component/AntOne'),
+    loading: Loading,
+});
+const Login = Loadable({
+    loader: () => import('./common/component/login/login'),
+    loading: Loading,
+});
+const Number = Loadable({
+    loader: () => import('./common/component/antNumber/AntNumber'),
+    loading: Loading,
+});
+const Index = Loadable({
+    loader: () => import('./common/container/index'),
+    loading: Loading,
+});
 class App extends Component {
   render() {
     return (
@@ -27,11 +42,11 @@ class App extends Component {
               }}/>
               <Switch>
                 {/*<Redirect to={'/home'}/>*/}
-                <Route path='/home' component={MtHome}/>
+                <Route path='/home' component={Home}/>
                 <Route path='/antOne' component={AntOne}/>
                 <Route path='/login' component={Login}/>
                 <Route path='/number' component={Number}/>
-                <Route path='/index' component={MyIndex}/>
+                <Route path='/index' component={Index}/>
               </Switch>
               {/*{location.hash}ddd*/}
             </div>
