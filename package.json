@@ -2,6 +2,7 @@
   "name": "ant-route",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://woodsbeer.github.io/ant-route/",
   "dependencies": {
     "antd": "^3.9.3",
     "autoprefixer": "7.1.6",
@@ -63,7 +64,9 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "test": "react-app-rewired test --env=jsdom"
+    "test": "react-app-rewired test --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -112,6 +115,7 @@
   },
   "devDependencies": {
     "fetch-jsonp": "latest",
+    "gh-pages": "^2.0.1",
     "react-app-rewired": "^1.6.2",
     "react-redux": "latest",
     "redux": "latest",

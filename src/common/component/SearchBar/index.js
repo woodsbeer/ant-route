@@ -29,13 +29,11 @@ export default class SearchBar extends React.Component {
       datas[data.key] = newValue;
     }
     this.setState({datas: {...datas}})
-    console.log('change成功，state现在是', this.state.datas);
   };
 
   createInputs = () => {
     const datas = this.props.searchData;
     const componnets = [];
-
     for (const data of datas) {
       let componnet;
       const items = data.items;
@@ -43,7 +41,8 @@ export default class SearchBar extends React.Component {
         case 'select':
           componnet = (<Select
               placeholder="请选择"
-              value={this.state.datas[data.key] === undefined ? (data.defaultValue && data.defaultValue.toString()) : this.state.datas[data.key]}
+              value={this.state.datas[data.key] === undefined ? (data.defaultValue && data.defaultValue.toString()) :
+                  this.state.datas[data.key]}
               multiple={data.multiple}
               // disabled={this.state.datas[data.key]}
               onChange={(value) => {
@@ -70,7 +69,7 @@ export default class SearchBar extends React.Component {
               style={{
                 width: '100%',
               }}
-          />)
+          />);
           break
       }
       componnets.push(<div key={data.key} className={'field'}>
@@ -101,7 +100,6 @@ export default class SearchBar extends React.Component {
         value =value.trim();
       if (value !== '')
         fields[key] = value;
-
     }
     this.props.submitHandle(fields)
   };

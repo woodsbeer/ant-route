@@ -32,7 +32,7 @@ const allMenu = [
     url: 'search',
     icon: 'search',
     children: [
-      { name: '搜索引擎', url: 'searchEngine' },
+      { name: '搜索引擎', url: 'index/searchEngine' },
     ],
   }, {
     name: '开发模块',
