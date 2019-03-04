@@ -1,6 +1,6 @@
 import React from "react"
 import { Form, InputNumber } from 'antd';
-
+import {NumberCom} from '../heightCom/index'
 const FormItem = Form.Item;
 
 function validatePrimeNumber(number) {
@@ -54,6 +54,7 @@ export default class RawForm extends React.Component {
                 onChange={this.handleNumberChange}
             />
           </FormItem>
+          <NumberCom/>
         </Form>
     );
   }

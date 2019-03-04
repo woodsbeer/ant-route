@@ -8,7 +8,6 @@ import Table from '../../component/table'
 import {languageKindList, musicKindList, publishCountry, tableHeader} from '../../utils/musicDatas'
 import moment from 'moment'
 const {confirm} = Modal
-
 class Music extends React.Component {
   constructor() {
     super(...arguments);
@@ -37,13 +36,13 @@ class Music extends React.Component {
     title: '发行国家',
     key: 'country',
     type: 'select',
-    defaultValue: '全部',
+    defaultValue: '0',
     items: publishCountry,
   }, {
     title: '歌曲语种',
     key: 'language',
     type: 'select',
-    defaultValue: '全部',
+    defaultValue: '0',
     items: languageKindList,
   }, {
     title: '发行时间段',
